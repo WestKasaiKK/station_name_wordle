@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="style.css" rel="stylesheet">
+<link href="station_name_data.txt" id="data">
+<title>駅名Wordle</title>
+</head>
+<body>
+<h1 class="title">駅名Wordle</h1>
+<object id="songdata" data="station_name_data.txt" type="text/plain" style="display:none"></object>
+<p id="g">
+  <button type="button" id="g0" onclick="startClick()">GAME START</button>
+</p>
+<p id="l0">
+  <button type="button" id="a0">　</button>
+  <button type="button" id="a1">　</button>
+  <button type="button" id="a2">　</button>
+  <button type="button" id="a3">　</button>
+  <button type="button" id="a4">　</button>
+  <button type="button" id="a5">　</button>
+  <button type="button" id="a6">　</button>
+  <button type="button" id="a7">　</button>
+  <button type="button" id="a8">　</button>
+  <button type="button" id="a9">　</button>
+</p>
+<p id="l1">
+  <button type="button" id="a100">　</button>
+  <button type="button" id="a101">　</button>
+  <button type="button" id="a102">　</button>
+  <button type="button" id="a103">　</button>
+  <button type="button" id="a104">　</button>
+  <button type="button" id="a105">　</button>
+  <button type="button" id="a106">　</button>
+  <button type="button" id="a107">　</button>
+  <button type="button" id="a108">　</button>
+  <button type="button" id="a109">　</button>
+</p>
+<p id="l2">
+  <button type="button" id="a200">　</button>
+  <button type="button" id="a201">　</button>
+  <button type="button" id="a202">　</button>
+  <button type="button" id="a203">　</button>
+  <button type="button" id="a204">　</button>
+  <button type="button" id="a205">　</button>
+  <button type="button" id="a206">　</button>
+  <button type="button" id="a207">　</button>
+  <button type="button" id="a208">　</button>
+  <button type="button" id="a209">　</button>
+</p>
+<p id="l3">
+  <button type="button" id="a300">　</button>
+  <button type="button" id="a301">　</button>
+  <button type="button" id="a302">　</button>
+  <button type="button" id="a303">　</button>
+  <button type="button" id="a304">　</button>
+  <button type="button" id="a305">　</button>
+  <button type="button" id="a306">　</button>
+  <button type="button" id="a307">　</button>
+  <button type="button" id="a308">　</button>
+  <button type="button" id="a309">　</button>
+</p>
+<p id="l4">
+  <button type="button" id="a400">　</button>
+  <button type="button" id="a401">　</button>
+  <button type="button" id="a402">　</button>
+  <button type="button" id="a403">　</button>
+  <button type="button" id="a404">　</button>
+  <button type="button" id="a405">　</button>
+  <button type="button" id="a406">　</button>
+  <button type="button" id="a407">　</button>
+  <button type="button" id="a408">　</button>
+  <button type="button" id="a409">　</button>
+</p>
+<p id="l5">
+  <button type="button" id="a500">　</button>
+  <button type="button" id="a501">　</button>
+  <button type="button" id="a502">　</button>
+  <button type="button" id="a503">　</button>
+  <button type="button" id="a504">　</button>
+  <button type="button" id="a505">　</button>
+  <button type="button" id="a506">　</button>
+  <button type="button" id="a507">　</button>
+  <button type="button" id="a508">　</button>
+  <button type="button" id="a509">　</button>
+</p>
+<p id="l6">
+  <button type="button" id="a600">　</button>
+  <button type="button" id="a601">　</button>
+  <button type="button" id="a602">　</button>
+  <button type="button" id="a603">　</button>
+  <button type="button" id="a604">　</button>
+  <button type="button" id="a605">　</button>
+  <button type="button" id="a606">　</button>
+  <button type="button" id="a607">　</button>
+  <button type="button" id="a608">　</button>
+  <button type="button" id="a609">　</button>
+</p>
+<p id="l7">
+  <button type="button" id="a700">　</button>
+  <button type="button" id="a701">　</button>
+  <button type="button" id="a702">　</button>
+  <button type="button" id="a703">　</button>
+  <button type="button" id="a704">　</button>
+  <button type="button" id="a705">　</button>
+  <button type="button" id="a706">　</button>
+  <button type="button" id="a707">　</button>
+  <button type="button" id="a708">　</button>
+  <button type="button" id="a709">　</button>
+</p>
+<p id="l8">
+  <button type="button" id="a800">　</button>
+  <button type="button" id="a801">　</button>
+  <button type="button" id="a802">　</button>
+  <button type="button" id="a803">　</button>
+  <button type="button" id="a804">　</button>
+  <button type="button" id="a805">　</button>
+  <button type="button" id="a806">　</button>
+  <button type="button" id="a807">　</button>
+  <button type="button" id="a808">　</button>
+  <button type="button" id="a809">　</button>
+</p>
+<p id="l9">
+  <button type="button" id="a900">　</button>
+  <button type="button" id="a901">　</button>
+  <button type="button" id="a902">　</button>
+  <button type="button" id="a903">　</button>
+  <button type="button" id="a904">　</button>
+  <button type="button" id="a905">　</button>
+  <button type="button" id="a906">　</button>
+  <button type="button" id="a907">　</button>
+  <button type="button" id="a908">　</button>
+  <button type="button" id="a909">　</button>
+</p>
+<p id="anstext"><font size="5"></font></p>
+<p id="infotext"><font size="3"></font></p>
+<p id="infotext2"><font size="3"></font></p>
+<p>
+  <button type="button" id="b0" onclick="okClick()">OK</button>
+  <button type="button" id="b1" onclick="textBack()">1文字戻る</button>
+    <label>まとめて入力：<input type="text" id="nametext"></label>
+    <input type="button" value="Add" id="AddButton" onclick="addClick()">
+    
+</p>
+<p>
+  <button type="button" id="p0" onclick="buttonClick(0)">あ</button>
+  <button type="button" id="p5" onclick="buttonClick(5)">か</button>
+  <button type="button" id="p10" onclick="buttonClick(10)">さ</button>
+  <button type="button" id="p15" onclick="buttonClick(15)">た</button>
+  <button type="button" id="p20" onclick="buttonClick(20)">な</button>
+  <button type="button" id="p25" onclick="buttonClick(25)">は</button>
+  <button type="button" id="p30" onclick="buttonClick(30)">ま</button>
+  <button type="button" id="p35" onclick="buttonClick(35)">や</button>
+  <button type="button" id="p38" onclick="buttonClick(38)">ら</button>
+  <button type="button" id="p43" onclick="buttonClick(43)">わ</button><br>
+
+  <button type="button" id="p1" onclick="buttonClick(1)">い</button>
+  <button type="button" id="p6" onclick="buttonClick(6)">き</button>
+  <button type="button" id="p11" onclick="buttonClick(11)">し</button>
+  <button type="button" id="p16" onclick="buttonClick(16)">ち</button>
+  <button type="button" id="p21" onclick="buttonClick(21)">に</button>
+  <button type="button" id="p26" onclick="buttonClick(26)">ひ</button>
+  <button type="button" id="p31" onclick="buttonClick(31)">み</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p39" onclick="buttonClick(39)">り</button><br>
+
+  <button type="button" id="p2" onclick="buttonClick(2)">う</button>
+  <button type="button" id="p7" onclick="buttonClick(7)">く</button>
+  <button type="button" id="p12" onclick="buttonClick(12)">す</button>
+  <button type="button" id="p17" onclick="buttonClick(17)">つ</button>
+  <button type="button" id="p22" onclick="buttonClick(22)">ぬ</button>
+  <button type="button" id="p27" onclick="buttonClick(27)">ふ</button>
+  <button type="button" id="p32" onclick="buttonClick(32)">む</button>
+  <button type="button" id="p36" onclick="buttonClick(36)">ゆ</button>
+  <button type="button" id="p40" onclick="buttonClick(40)">る</button>
+  <button type="button" id="p44" onclick="buttonClick(44)">を</button><br>
+
+  <button type="button" id="p3" onclick="buttonClick(3)">え</button>
+  <button type="button" id="p8" onclick="buttonClick(8)">け</button>
+  <button type="button" id="p13" onclick="buttonClick(13)">せ</button>
+  <button type="button" id="p18" onclick="buttonClick(18)">て</button>
+  <button type="button" id="p23" onclick="buttonClick(23)">ね</button>
+  <button type="button" id="p28" onclick="buttonClick(28)">へ</button>
+  <button type="button" id="p33" onclick="buttonClick(33)">め</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p41" onclick="buttonClick(41)">れ</button><br>
+
+  <button type="button" id="p4" onclick="buttonClick(4)">お</button>
+  <button type="button" id="p9" onclick="buttonClick(9)">こ</button>
+  <button type="button" id="p14" onclick="buttonClick(14)">そ</button>
+  <button type="button" id="p19" onclick="buttonClick(19)">と</button>
+  <button type="button" id="p24" onclick="buttonClick(24)">の</button>
+  <button type="button" id="p29" onclick="buttonClick(29)">ほ</button>
+  <button type="button" id="p34" onclick="buttonClick(34)">も</button>
+  <button type="button" id="p37" onclick="buttonClick(37)">よ</button>
+  <button type="button" id="p42" onclick="buttonClick(42)">ろ</button>
+  <button type="button" id="p45" onclick="buttonClick(45)">ん</button>
+</p>
+<p>
+  <button type="button" id="p46" onclick="buttonClick(46)">ぁ</button>
+  <button type="button" id="p51" onclick="buttonClick(51)">が</button>
+  <button type="button" id="p56" onclick="buttonClick(56)">ざ</button>
+  <button type="button" id="p61" onclick="buttonClick(61)">だ</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p66" onclick="buttonClick(66)">ば</button>
+  <button type="button" id="p71" onclick="buttonClick(71)">ぱ</button>
+  <button type="button" id="p76" onclick="buttonClick(76)">ゃ</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p79" onclick="buttonClick(79)">ゎ</button><br>
+
+  <button type="button" id="p47" onclick="buttonClick(47)">ぃ</button>
+  <button type="button" id="p52" onclick="buttonClick(52)">ぎ</button>
+  <button type="button" id="p57" onclick="buttonClick(57)">じ</button>
+  <button type="button" id="p62" onclick="buttonClick(62)">ぢ</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p67" onclick="buttonClick(67)">び</button>
+  <button type="button" id="p72" onclick="buttonClick(72)">ぴ</button><br>
+
+  <button type="button" id="p48" onclick="buttonClick(48)">ぅ</button>
+  <button type="button" id="p53" onclick="buttonClick(53)">ぐ</button>
+  <button type="button" id="p58" onclick="buttonClick(58)">ず</button>
+  <button type="button" id="p63" onclick="buttonClick(63)">づ</button>
+  <button type="button" id="p82" onclick="buttonClick(82)">っ</button>
+  <button type="button" id="p68" onclick="buttonClick(68)">ぶ</button>
+  <button type="button" id="p73" onclick="buttonClick(73)">ぷ</button>
+  <button type="button" id="p77" onclick="buttonClick(77)">ゅ</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p80" onclick="buttonClick(80)">ゔ</button><br>
+
+  <button type="button" id="p49" onclick="buttonClick(49)">ぇ</button>
+  <button type="button" id="p54" onclick="buttonClick(54)">げ</button>
+  <button type="button" id="p59" onclick="buttonClick(59)">ぜ</button>
+  <button type="button" id="p64" onclick="buttonClick(64)">で</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p69" onclick="buttonClick(69)">べ</button>
+  <button type="button" id="p74" onclick="buttonClick(74)">ぺ</button><br>
+
+  <button type="button" id="p50" onclick="buttonClick(50)">ぉ</button>
+  <button type="button" id="p55" onclick="buttonClick(55)">ご</button>
+  <button type="button" id="p60" onclick="buttonClick(60)">ぞ</button>
+  <button type="button" id="p65" onclick="buttonClick(65)">ど</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p70" onclick="buttonClick(70)">ぼ</button>
+  <button type="button" id="p75" onclick="buttonClick(75)">ぽ</button>
+  <button type="button" id="p78" onclick="buttonClick(78)">ょ</button>
+  <button type="button" class="btn-white">　</button>
+  <button type="button" id="p81" onclick="buttonClick(81)">ー</button><br>
+</p>
+
+<p id="wrongtext">　</p>
+<p><font size="1">※初めての方へ：本ゲームは作りかけです。遊ぶことはできますが色々と不便な点・融通の利かない点・誤っている点などがありますのでご了承ください。</font></p>
+<p><font size="1">【最終更新：2022-05-31 作成】</font></p>
+
+<script>
+
+var limit=10;
+
+//let ansedtext = document.getElementById('ansedtext');
+
+//let checkButton = document.getElementById('checkButton');
+//checkButton.addEventListener('click', buttonClick);
+
+
+var hiragana=["あ","い","う","え","お","か","き","く","け","こ","さ","し","す","せ","そ","た","ち","つ","て","と",
+"な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ","ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ",
+"わ","を","ん","ぁ","ぃ","ぅ","ぇ","ぉ","が","ぎ","ぐ","げ","ご","ざ","じ","ず","ぜ","ぞ","だ","ぢ","づ","で","ど",
+"ば","び","ぶ","べ","ぼ","ぱ","ぴ","ぷ","ぺ","ぽ","ゃ","ゅ","ょ","ゎ","ゔ","ー","っ"]
+
+var subletters=["ア","イ","ウ","エ","オ","カ","キ","ク","ケ","コ","サ","シ","ス","セ","ソ","タ","チ","ツ","テ","ト",
+"ナ","ニ","ヌ","ネ","ノ","ハ","ヒ","フ","ヘ","ホ","マ","ミ","ム","メ","モ","ヤ","ユ","ヨ","ラ","リ","ル","レ","ロ",
+"ワ","ヲ","ン","ァ","ィ","ゥ","ェ","ォ","ガ","ギ","グ","ゲ","ゴ","ザ","ジ","ズ","ゼ","ゾ","ダ","ヂ","ヅ","デ","ド",
+"バ","ビ","ブ","ベ","ボ","パ","ピ","プ","ペ","ポ","ャ","ュ","ョ","ヮ","ヴ","ー","ッ"]
+
+var dict={}
+for (let i=0;i<hiragana.length;i++){
+    dict[hiragana[i]]=i;
+}
+
+
+/*
+var songlistN=["あのね、聞いてほしいことがあるんだ","おまじない","僕らだけの未来の空","きみがくれた言葉があるから"]
+var songlistH=["あのねきいてほしいことがあるんだ","おまじない","ぼくらだけのみらいのそら","きみがくれたことばがあるから"]
+var infolist=["1","3","5","7"]
+*/
+var songlistN=[];
+var songlistH=[];
+var infolist=[];
+fetch('songdata_JP.txt')
+  .then(function (response) {
+     return response.text();
+  })
+  .then(function (mass) {
+    var datas=mass.split("\n")
+    var j=0;
+    for (let i=0;i+2<datas.length;i=i+3){
+      d1=datas[i]
+      d2=datas[i+1]
+      d3=datas[i+2]
+      //console.log(d1,d2,d3);
+      if (d2.length<=limit){
+        songlistN.push(d1)
+        songlistH.push(d2)
+        infolist.push(d3)
+      }
+    }
+    wrongtext.innerText="出題対象："+String(songlistH.length)+"駅"
+  });
+
+
+//fr=new FileReader();
+
+
+var ingame=false;
+var stage=0;
+var stagelimit=10;
+var kaitoutext="";
+var leftsong=songlistN.length;
+
+var ansnumber=0;
+var anshiragana=songlistH[ansnumber];
+
+var colorlist=[]
+for (let i=0;i<hiragana.length;i++){
+    colorlist.push(0);
+  }
+
+var color_green="#00c000"
+var color_yellow="#c0c000"
+var color_black="#101010"
+var color_basic="#888888"
+
+var obj=document.getElementById("b0");
+obj.style.backgroundColor="#3030a0";
+var obj=document.getElementById("b1");
+obj.style.backgroundColor="#800000";
+var obj=document.getElementById("g0");
+obj.style.backgroundColor="#900090";
+
+for (let i=0;i<stagelimit;i++){
+    var obj=document.getElementById("l"+String(i));
+    obj.style.display="none";
+  }
+
+var obj=document.getElementById("anstext");
+obj.style.display="none";
+var obj=document.getElementById("infotext");
+obj.style.display="none";
+var obj=document.getElementById("infotext2");
+obj.style.display="none";
+
+var obj=document.getElementById("songdata");
+obj.style.display="none";
+
+function startClick(){
+  ingame=true;
+  stage=0;
+  var obj=document.getElementById("l0");
+  obj.style.display="block";
+  for (let i=1;i<stagelimit;i++){
+  var obj=document.getElementById("l"+String(i));
+  obj.style.display="none";
+  }
+  var obj=document.getElementById("g");
+  obj.style.display="none";
+  var obj=document.getElementById("anstext");
+  obj.style.display="none";
+  var obj=document.getElementById("infotext");
+  obj.style.display="none";
+  var obj=document.getElementById("infotext2");
+  obj.style.display="none";
+
+  kaitoutext=""
+  wrongtext.innerText="";
+
+  for (let i=0;i<stagelimit;i++){
+  for (let j=0;j<limit;j++){
+    var buttoncode=(i*100)+j;
+    var obj=document.getElementById("a"+String(buttoncode));
+    obj.style.backgroundColor=color_basic;
+    obj.textContent="　";
+  }}
+  for (let j=0;j<hiragana.length;j++){
+    var obj=document.getElementById("p"+String(j));
+    obj.style.backgroundColor=color_basic;
+  }
+
+  colorlist=[]
+  for (let i=0;i<hiragana.length;i++){
+    colorlist.push(0);
+  }
+
+  ansnumber=Math.floor(Math.random()*(songlistH.length)); //chusen
+  anshiragana=songlistH[ansnumber];
+
+}
+
+function buttonClick(e){
+  if (ingame==true){
+    //const data= e.currentTarget.dataset["index"];
+    var inichi = kaitoutext.length;
+    if (kaitoutext.length>=limit){
+      kaitoutext=kaitoutext.slice(0,-1);
+      inichi--;
+    }
+    kaitoutext=kaitoutext+hiragana[e];
+    wrongtext.innerText=kaitoutext;
+
+    var buttoncode=(stage*100)+inichi;
+    var obj=document.getElementById("a"+String(buttoncode));
+    //console.log(obj.textContent)
+    obj.textContent=hiragana[e]
+  }
+}
+
+function addClick(){
+  var nametext=document.getElementById("nametext");
+  var inp=nametext.value;
+  
+  for (let i=0;i<inp.length;i++){
+    //console.log("ininin");
+    var l=inp.charAt(i);
+    var lin=false;
+    for (let j=0;j<hiragana.length;j++){
+      if ((l==hiragana[j] || l==subletters[j]) && kaitoutext.length<limit){
+        buttonClick(j);
+        lin=true;
+        break
+      }
+    }
+    
+
+  }
+  nametext.value="";
+}
+
+function okClick(){
+if (kaitoutext!="" && ingame==true){
+  var canuse=[];
+  var rel=[];
+  var seikai=true;
+  for (let i=0;i<hiragana.length;i++){
+    canuse.push(0);
+  }
+  for (let i=0;i<anshiragana.length;i++){
+    canuse[dict[anshiragana.charAt(i)]]++;
+  }
+  for (let i=0;i<limit;i++){
+    if (kaitoutext.length<=i){
+      if (anshiragana.length<=i){
+        rel.push(2);
+      }else{
+        seikai=false;
+        rel.push(-1);
+      }
+    }else{
+      if (anshiragana.length<=i){
+        seikai=false;
+        rel.push(0);
+      }else{
+        if (kaitoutext.charAt(i)==anshiragana.charAt(i)){
+          rel.push(2);
+          canuse[dict[kaitoutext.charAt(i)]]--;
+        }else{
+          seikai=false;
+          rel.push(0);
+        }
+      }
+    }
+  }
+  for (let i=0;i<limit;i++){
+    if (rel[i]==0){
+      if (canuse[dict[kaitoutext.charAt(i)]]>0){
+        canuse[dict[kaitoutext.charAt(i)]]--;
+        rel[i]=1
+      }
+    }
+  }
+
+  for (let i=0;i<limit;i++){
+    if (rel[i]>-2){
+      var buttoncode=(stage*100)+i;
+      var obj=document.getElementById("a"+String(buttoncode));
+      //Sconsole.log(obj.textContent)
+      if (rel[i]==2){
+        obj.style.backgroundColor=color_green;
+        colorlist[dict[kaitoutext.charAt(i)]]=2
+      }else if(rel[i]==1){
+        obj.style.backgroundColor=color_yellow;
+        if (colorlist[dict[kaitoutext.charAt(i)]]<1){
+          colorlist[dict[kaitoutext.charAt(i)]]=1
+        }
+      }else{
+        obj.style.backgroundColor=color_black;
+        if (colorlist[dict[kaitoutext.charAt(i)]]<1){
+          colorlist[dict[kaitoutext.charAt(i)]]=-1
+        }
+      }
+      
+    }
+  }
+  for (let i=0;i<hiragana.length;i++){
+    if(colorlist[i]==2){
+      var obj=document.getElementById("p"+String(i));
+      obj.style.backgroundColor=color_green;
+    }else if(colorlist[i]==1){
+      var obj=document.getElementById("p"+String(i));
+      obj.style.backgroundColor=color_yellow;
+    }else if(colorlist[i]==-1){
+      var obj=document.getElementById("p"+String(i));
+      obj.style.backgroundColor=color_black;
+    }
+  }
+
+  console.log(String(rel))
+  
+  kaitoutext="";
+  if(stage+1<stagelimit && seikai==false){
+    stage++;
+    var obj=document.getElementById("l"+String(stage));
+    obj.style.display="block";
+    wrongtext.innerText="";
+  }else{
+    ingame=false;
+    var obj=document.getElementById("anstext");
+    obj.textContent="正解：「"+songlistN[ansnumber]+"」";
+    obj.style.display="block";
+    var obj=document.getElementById("infotext");
+    obj.textContent=songlistH[ansnumber];
+    obj.style.display="block";
+    var obj=document.getElementById("infotext2");
+    obj.textContent=infolist[ansnumber];
+    obj.style.display="block";
+    var obj=document.getElementById("g");
+    obj.style.display="block";
+  }
+
+}
+
+}
+
+function textBack(){
+  
+  if (kaitoutext.length>0 && ingame==true){
+      var inichi = kaitoutext.length-1;
+      kaitoutext=kaitoutext.slice(0,-1)
+      var buttoncode=(stage*100)+inichi;
+      var obj=document.getElementById("a"+String(buttoncode));
+      //Sconsole.log(obj.textContent)
+      obj.textContent="　"
+    }
+    wrongtext.innerText=kaitoutext;
+}
+
+
+</script>
+
+</body>
+</html>
